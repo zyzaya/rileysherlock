@@ -1,0 +1,10 @@
+{
+    "git": { "image": "../assets/Git.svg"},
+    "CSS": { "image": "../assets/css_logo.png"},
+    "HTML": { "image": "../assets/HTML5.svg"},
+    "JavaScript": { "image": "../assets/JavaScript.svg"},
+    "TypeScript": {"image": "../assets/TypeScript.svg"},
+    "Ruby": { "image": "../assets/Ruby.svg"},
+    "React": { "image": "../assets/React.svg"},
+    "Ruby on Rails": { "image": "../assets/Ruby on Rails.svg"}
+}

@@ -1,5 +1,5 @@
 import { defineCollection } from 'astro:content';
-import { glob } from 'astro/loaders';
+import { glob, file } from 'astro/loaders';
 import { z } from "astro/zod";
 
 const projects = defineCollection({
@@ -10,4 +10,11 @@ const projects = defineCollection({
     }),
 });
 
-export const collections = { projects };
+const skills = defineCollection({
+    loader: file("src/data/skills.json"),
+    schema: ({ image }) => z.object({
+        image: image(),
+    })
+})
+
+export const collections = { projects, skills };

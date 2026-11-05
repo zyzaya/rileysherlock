@@ -1,29 +1,29 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-
+import { getCollection } from "astro:content";
+const skills = (await getCollection("skills")).sort(
+    (a, b) => a.id.localeCompare(b.id)
+)
+const size = 24
 ---
 <Layout>
     <div class="about">
-        <h1 class="title">About Me</h1>
+        <h1 class="title">Bio</h1>
         <div class="description">
             Web developer with hands-on experience building web applications, interactive frontends, database-backed features, and automated tests. Familiar with Ruby on Rails, React, JavaScript, and modern development tools, with an interest in writing maintainable, well-tested code.
         </div>
         <div class="skills">
             <h2>Skills</h2>
-            <span>git</span>
-            <span>CSS</span>
-            <span>HTML</span>
-            <span>JavaScript</span>
-            <span>TypeScript</span>
-            <span>React</span>
-            <span>SQL</span>
-            <span>Ruby</span>
-            <span>Ruby on Rails</span>
-            <span>Stimulus</span>
-            <span>Capybara</span>
-            <span>Jest</span>
-            <span>Minitest</span>
-            <span>Rspec</span>
+            <div class="icons">
+                {skills.map(skill => (
+                    <div class="skill">
+                        <Image src={skill.data.image} alt={skill.id} height={size} />
+                        <span class="skill_name">{skill.id}</span>
+                    </div>
+                    
+                ))}
+            </div>
         </div>
     </div>
     
@@ -34,5 +34,16 @@ import Layout from "../layouts/Layout.astro";
         display: grid;
         grid-template-rows: 1fr min-content;
         gap: 8px;
+    }
+
+    .icons {
+        display: flex;
+        gap: 8px;
+    }
+
+    .skill {
+        display: flex;
+        height: min-content;
+        gap: 2px
     }
 </style>
