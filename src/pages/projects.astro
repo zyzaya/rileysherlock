@@ -1,25 +1,48 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { getCollection, getEntry } from "astro:content";
+const projects = (await getCollection('projects')).sort(
+    (a, b) => a.data.name.localeCompare(b.data.name)
+)
 ---
 
 <Layout>
-    <div class="queuezed">
-        <div class="project_image"></div>
-        <h1 class="project_title">queuezed</h1>
-        <div class="project_text">
-            A quiz application that allows the user to create, edit, and practice quizzes.
-        </div>
-    </div>
-    <div class="zgrid">
-        <div class="project_image"></div>
-        <h1 class="project_title">zGrid</h1>
-        <div class="project_text">js grid plugin thing</div>
-    </div>
-    <div class="character_map">
-        <div class="project_image"></div>
-        <h1 class="project_title">character map</h1>
-        <div class="project_text">
-              A dnd character sheet kind of thing.
-        </div>
+    <div class="projects">
+        {projects.map(project => (
+            <div>
+                <div class="image">image</div>
+                <div>
+                    <h1 class="name">{project.data.name}</h1>
+                    <div class="description">{project.data.description}</div>
+                </div>
+            </div>      
+        ))}
     </div>
 </Layout>
+
+<style>
+    .projects {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .name {
+        margin-bottom: 4px;
+    }
+
+    .projects > div {
+        border: 1px solid black;
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        gap: 4px;
+    }
+
+    .image {
+        width: 64px;
+        height: 64px;
+        margin: auto;
+        background-color: green;
+    }
+</style>
+

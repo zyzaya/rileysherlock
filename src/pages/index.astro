@@ -1,11 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
-
 ---
 <Layout>
-	<div class="text">
-		<h1 class="title">Riley Sherlock</h1>
-		<h2 class="subtitle">developer</h2>
+	<div class="home">
+		<div class="text">
+			<h1 class="title">Riley Sherlock</h1>
+			<div class="subtitle">
+				full stack web developer
+			</div>
+		</div>
+		<div class="icon"></div>
 	</div>
-	<div class="icon"></div>
+
 </Layout>
+
+<style>
+	.home {
+		display: grid;
+		grid-template-columns: 1fr min-content;
+		margin: auto;
+		width: min-content;
+		height: min-content;
+		gap: 8px;
+	}
+
+	.text {
+		align-self: center;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.title {
+		white-space: nowrap;
+		align-self: flex-start;
+	}
+
+	.subtitle {
+		white-space: nowrap;
+	}
+
+	.icon {
+		background-color: aqua;
+		width: 256px;
+		height: 256px;
+	}
+</style>
