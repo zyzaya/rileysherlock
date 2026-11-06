@@ -1,8 +1,56 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import emailImage from "../assets/email.svg";
+import githubImage from "../assets/GitHub.svg";
+const size = 16;
 ---
 <Layout>
-    <div class="contact_page hidden" id="contact_page">
-        contact
+    <div class="contact">
+        <div>
+            Feel free to contact me about hiring, business inquiries, or simply to say hello.
+        </div>
+        <div class="link_container">
+            <Image src={emailImage} alt="" width={size}/>
+            <a class="link" href="mailto:riley.sherlock@minyip.ca">riley.sherlock@minyip.ca</a>  
+        </div>
+        <div class="link_container">
+            <Image src={githubImage} alt="" width={size} />
+            <a class="link" href="https://github.com/zyzaya">github.com/zyzyaya</a>
+        </div>
+        
     </div>
+    
 </Layout>
+
+<style>
+    .contact {
+        margin: auto;
+        max-width: 512;
+    }
+
+    .contact > :first-child {
+        margin-bottom: 16px;
+    }
+
+    .link_container {
+        margin: auto;
+        display: grid;
+        grid-template-columns: min-content 1fr;
+        gap: 8px;
+    }
+    
+    .link_container > * {
+        align-self: center;
+    }
+
+    .link {
+        text-decoration: none;
+        color: rgba(0, 0, 0, 0.75);
+    }
+
+    .link:hover {
+        color: black;
+        text-decoration: underline;
+    }
+</style>
