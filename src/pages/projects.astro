@@ -13,7 +13,7 @@ const size = 96;
         {projects.map(project => (
             <a href={project.data.link}>
                 <div class="image">
-                    <Image src={project.data.image} alt={project.data.name} width={size} />
+                    <Image src={project.data.image} alt={project.data.name} width={size} loading="eager" />
                 </div>
                 <div>
                     <h1 class="name">{project.data.name}</h1>

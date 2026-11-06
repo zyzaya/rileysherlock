@@ -18,7 +18,7 @@ const size = 24
             <div class="icons">
                 {skills.map(skill => (
                     <div class="skill">
-                        <Image src={skill.data.image} alt={skill.id} height={size} />
+                        <Image src={skill.data.image} alt={skill.id} height={size} loading="eager"/>
                         <span class="skill_name">{skill.id}</span>
                     </div>
                 ))}
