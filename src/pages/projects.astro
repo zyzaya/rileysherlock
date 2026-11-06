@@ -1,18 +1,20 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 const projects = (await getCollection('projects')).sort(
     (a, b) => a.data.name.localeCompare(b.data.name)
 )
+const size = 64;
 ---
 
 <Layout>
     <div class="projects">
         {projects.map(project => (
             <div>
-                <div class="image">image</div>
+                <Image class="image" src={project.data.image} alt={project.data.name} height={size} />
                 <div>
-                    <h1 class="name">{project.data.name}</h1>
+                    <a href={project.data.link}>{project.data.name}</a>
                     <div class="description">{project.data.description}</div>
                 </div>
             </div>      
@@ -43,8 +45,6 @@ const projects = (await getCollection('projects')).sort(
     }
 
     .image {
-        width: 64px;
-        height: 64px;
         margin: auto;
         background-color: green;
     }
