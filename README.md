@@ -21,3 +21,11 @@ A portfolio and personal website. A central demonstration of skills and experien
 - *issue* - used when fixing an existing issue. Named as issue#-summary
 ---
 - *tag* - git tag vX.X.X
+
+# build
+- npm run build
+- npm run preview to preview build locally
+- deployed on render.com: https://render.com/docs/deploy-rails
+
+deploy
+- render automatically deploys commits on branch *main*
