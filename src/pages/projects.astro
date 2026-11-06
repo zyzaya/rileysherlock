@@ -5,19 +5,21 @@ import { getCollection } from "astro:content";
 const projects = (await getCollection('projects')).sort(
     (a, b) => a.data.name.localeCompare(b.data.name)
 )
-const size = 64;
+const size = 96;
 ---
 
 <Layout>
     <div class="projects">
         {projects.map(project => (
-            <div>
-                <Image class="image" src={project.data.image} alt={project.data.name} height={size} />
+            <a href={project.data.link}>
+                <div class="image">
+                    <Image src={project.data.image} alt={project.data.name} width={size} />
+                </div>
                 <div>
-                    <a href={project.data.link}>{project.data.name}</a>
+                    <h1 class="name">{project.data.name}</h1>
                     <div class="description">{project.data.description}</div>
                 </div>
-            </div>      
+            </a>      
         ))}
     </div>
 </Layout>
@@ -29,24 +31,32 @@ const size = 64;
         gap: 8px;
     }
 
-    h1 {
-        color: var(--header);
-    }
-
     .name {
-        margin-bottom: 4px;
+        color: var(--header);
+        margin-bottom: 8px;
+        font-size: x-large;
     }
 
-    .projects > div {
-        border: 1px solid black;
+    .projects > a {
+        text-decoration: none;
+        color: var(--text);
         display: grid;
         grid-template-columns: min-content 1fr;
-        gap: 4px;
+        gap: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.24);
+        border-radius: 8px;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        padding: 8px;
+    }
+
+    .projects > a:hover {
+        box-shadow: rgba(0, 0, 0, 0.48) 0px 3px 8px;
     }
 
     .image {
-        margin: auto;
-        background-color: green;
+        display: flex;
+        align-items: center;
     }
+
 </style>
 
