@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
+import homeImage from "../assets/home_image.png";
 ---
 <Layout>
 	<div class="home">
@@ -9,7 +11,7 @@ import Layout from "../layouts/Layout.astro";
 				full-stack web developer
 			</div>
 		</div>
-		<div class="icon"></div>
+		<Image src={homeImage} alt="A stylistic representation of Riley Sherlock" height="512" loading="eager"}/>
 	</div>
 
 </Layout>
