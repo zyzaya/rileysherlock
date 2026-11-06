@@ -1,25 +1,39 @@
 ---
+console.log(Astro.url.pathname)
 
 ---
 
 <div class="header" id="header">
     <a href="/">Home</a>
-    <a href="/about" id="about">About</a>
+    <a href="/about">About</a>
     <a href="/projects">Projects</a>
     <a href="/contact">Contact</a>
 </div>
 
 <style>
+    @media (max-width: 512px) {
+        .header {
+            width: 100%;
+            margin: 0px auto;
+        }
+    }
+
+    @media (min-width: 512px) {
+        .header {
+            width: min-content;
+            margin: 8px auto;
+            border: 1px solid rgba(0, 0, 0, 0.24);
+            border-radius: 8px;
+        }
+    }
+
     .header {
         justify-content: flex-end;
         display: flex;
         flex-direction: row;
+        place-content: center;
         gap: 32px;
-        width: min-content;
-        margin: 8px auto;
         padding: 2px 15px;
-        border: 1px solid rgba(0, 0, 0, 0.24);
-        border-radius: 8px;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     }
 

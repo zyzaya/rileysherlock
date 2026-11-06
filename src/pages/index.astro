@@ -20,10 +20,11 @@ import Layout from "../layouts/Layout.astro";
 	}
 	
 	.home {
-		display: grid;
-		grid-template-columns: 1fr min-content;
+		display: flex;
+		flex-wrap: wrap;
+		place-content: center;
 		margin: auto;
-		width: min-content;
+		max-width: var(--max-width);
 		height: min-content;
 		gap: 16px;
 	}
