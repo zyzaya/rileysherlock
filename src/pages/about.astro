@@ -11,7 +11,7 @@ const size = 24
     <div class="about">
         <h1 class="title">Bio</h1>
         <div class="description">
-            Web developer with hands-on experience building web applications, interactive frontends, database-backed features, and automated tests. Familiar with Ruby on Rails, React, JavaScript, and modern development tools, with an interest in writing maintainable, well-tested code.
+            Hi, I am Riley Sherlock, a full-stack web developer who enjoys building interactive, practical web application and exploring new technologies. I have experience working with Ruby on Rails, JavaScript, React, and TypeScript, with a passion for writing clean, maintainable, and well-tested code.
         </div>
         <div class="skills">
             <h2>Skills</h2>
@@ -21,7 +21,6 @@ const size = 24
                         <Image src={skill.data.image} alt={skill.id} height={size} />
                         <span class="skill_name">{skill.id}</span>
                     </div>
-                    
                 ))}
             </div>
         </div>
@@ -41,9 +40,17 @@ const size = 24
         gap: 8px;
     }
 
+    h1, h2 {
+        margin-bottom: 8px;
+        color: var(--header);
+    }
+
     .skill {
         display: flex;
         height: min-content;
-        gap: 2px
+        gap: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.24);
+        border-radius: 8px;
+        padding: 4px;
     }
 </style>
